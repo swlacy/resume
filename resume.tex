@@ -1,0 +1,189 @@
+% Project:  TeX Resume
+% Editor:   Sid Lacy
+% Attrib:   https://github.com/jakegut/resume/
+
+\documentclass[a4letter,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage{mathptmx}
+ %\usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\begin{document}
+
+% Header
+\begin{center}
+    \textbf{\Huge \scshape Sid Lacy} \\ \vspace{1pt}
+    \small \href{https://swlacy.com}{swlacy.com} $|$
+    \href{mailto:contact@swlacy.com}{contact@swlacy.com} $|$ 
+    \href{https://linkedin.com/in/lacysw}{linkedin.com/in/lacysw} $|$
+    \href{https://github.com/lacysw}{github.com/lacysw} $|$
+    \small Pacific Northwest
+    
+    \small \textit{Specific location and phone number provided upon request.}
+\end{center}
+
+% Experience
+\section{Experience}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Hack the Box University CTF}{Nov. 2021}
+      {Western Washington University}{Bellingham, WA}
+      \resumeItemListStart
+        \resumeItem{Worked with red team members from Western Washington University to complete a series of advanced puzzles related to cryptography, forensics, and web service exploitation}
+      \resumeItemListEnd
+    
+    \resumeSubheading
+      {Department of Energy CyberForce Competition}{Nov. 2021}
+      {Western Washington University}{Bellingham, WA}
+      \resumeItemListStart
+        \resumeItem{Led the Western Washington University team securing systems and services, writing documentation, and maintaining professional contact in a systems administration/cybersecurity employee role against an assumed, actively exploited breach}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {IT Support Specialist (Short-Term Contract)}{Sept. 2021 -- Oct. 2021}
+      {Anvil Corporation}{Bellingham, WA}
+      \resumeItemListStart
+        \resumeItem{Used PowerShell and Quest KACE Systems Deployment Appliance to automate desktop and laptop workstation imaging}
+        \resumeItem{Performed hardware upgrades to workstations and servers}
+        \resumeItem{Carried out on-site maintenance and inventory cataloging}
+      \resumeItemListEnd
+
+     \resumeSubheading
+      {Collegiate Cyber Defense Competition (CCDC)}{Mar. 2021}
+      {Western Washington University}{Bellingham, WA}
+      \resumeItemListStart
+        \resumeItem{Hardened systems and services, wrote documentation, filed incident reports, provided client support, and more in the role of a systems administration/cybersecurity employee against a skilled team of attackers}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Computer Information Systems Tutor}{Oct. 2020 -- Present}
+      {Whatcom Community College}{Bellingham, WA}
+      \resumeItemListStart
+        \resumeItem{Teach and assist students with coursework related to material from the WCC Computer Information Systems Department}
+        
+        \resumeItem{Main technologies: PowerShell, Active Directory and Group Policy in Windows 10/Server 2016; Bash and Linux administration; Cisco networking; Python, Java, and C; identifying/patching system vulnerabilities; incident reports}
+      \resumeItemListEnd
+      
+  \resumeSubHeadingListEnd
+
+% Education
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Western Washington University}{Bellingham, WA}
+      {Bachelor of Science in Cybersecurity (GPA: 4.0)}{Jan. 2021 -- June 2023 (Expected)}
+      \resumeItemListStart
+        \resumeItem{Co-President of the Western Washington University Cybersecurity Club}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Western Washington University}{Bellingham, WA}
+      {Bachelor of Arts in Political Science (GPA: 4.0)}{Sept. 2021 -- Dec. 2023 (Expected)}
+    \resumeSubheading
+      {Whatcom Community College}{Bellingham, WA}
+      {Associate of Cybersecurity (GPA: 3.97; Graduated with Honors)}{Sept. 2017 -- Dec. 2020}
+      \resumeItemListStart
+        \resumeItem{Contributed to institution score in 2019 and 2020 NCL CTF games}
+        \resumeItem{Obtained WCC CIS Certificate of Network Administration}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+% Projects
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Personal Website \& Tech Blog}}{\href{https://swlacy.com}{swlacy.com}}
+      \resumeProjectHeading
+          {\textbf{WWU Cybersecurity Club}}{\href{https://wwucyber.com}{wwucyber.com}}
+          \resumeItemListStart
+            \resumeItem{Collaboratively designed and currently maintain a Discord and SharePoint-powered community for use by 80+ members to participate in competitions, CTFs, and other events.}
+            \resumeItem{Write documentation to enable success in cybersecurity competitions}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Home Lab}}{}
+          \resumeItemListStart
+            \resumeItem{RAID 1 Proxmox VM cluster hosting: AdGuard Home DNS, Plex Media Server appliances; remote development environment for VSCode SSH; Parrot, Windows images for CTFs; various game servers}
+            \resumeItem{Ubiquiti APs, switches, edge router powering network}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\end{document}
