@@ -2,7 +2,7 @@
 % Editor:   Sid Lacy
 % Attrib:   https://github.com/jakegut/resume/
 
-\documentclass[a4letter,11pt]{article}
+\documentclass[10pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
@@ -16,22 +16,23 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \input{glyphtounicode}
+\usepackage{fontawesome}
 
 \usepackage{mathptmx}
- %\usepackage{charter}
+\usepackage{charter}
 
 
 \pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
+\fancyhf{}
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{4.08003pt}
 
-% Adjust margins
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\evensidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
+\addtolength{\topmargin}{-0.5in}
 \addtolength{\textheight}{1.0in}
 
 \urlstyle{same}
@@ -40,15 +41,12 @@
 \raggedright
 \setlength{\tabcolsep}{0in}
 
-% Sections formatting
 \titleformat{\section}{
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
-% Ensure that generate pdf is machine readable/ATS parsable
 \pdfgentounicode=1
 
-%-------------------------
 % Custom commands
 \newcommand{\resumeItem}[1]{
   \item\small{
@@ -91,33 +89,37 @@
 
 % Header
 \begin{center}
-    \textbf{\Huge \scshape Sid Lacy} \\ \vspace{1pt}
-    \small \href{https://swlacy.com}{swlacy.com} $|$
-    \href{mailto:contact@swlacy.com}{contact@swlacy.com} $|$ 
-    \href{https://linkedin.com/in/lacysw}{linkedin.com/in/lacysw} $|$
-    \href{https://github.com/lacysw}{github.com/lacysw} $|$
-    \small Pacific Northwest
-    
-    \small \textit{Specific location and phone number provided upon request.}
+    \textbf{\Huge \scshape Sid Lacy} \\ \vspace{4pt}
+    \href{https://swlacy.com}{\faGlobe\enspace swlacy.com} $|$
+    \href{mailto:contact@swlacy.com}{\faEnvelopeO\enspace contact@swlacy.com} $|$ 
+    \href{https://linkedin.com/in/lacysw}{\faLinkedin\enspace linkedin.com/in/lacysw} $|$
+    \href{https://github.com/lacysw}{\faGithub\enspace github.com/lacysw} $|$
+    \faMapMarker\enspace Pacific Northwest
 \end{center}
 
 % Experience
 \section{Experience}
   \resumeSubHeadingListStart
-  
+    
     \resumeSubheading
       {Hack the Box University CTF}{Nov. 2021}
       {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Worked with red team members from Western Washington University to complete a series of advanced puzzles related to cryptography, forensics, and web service exploitation}
-      \resumeItemListEnd
-    
+      
+      \setlength{\leftskip}{14pt}
+      
+      \resumeItem{Worked with red team students from Western Washington University to complete a series of advanced puzzles related to cryptography, forensics, and web service exploitation}
+        
+      \setlength{\leftskip}{0pt}
+
     \resumeSubheading
       {Department of Energy CyberForce Competition}{Nov. 2021}
       {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Led the Western Washington University team securing systems and services, writing documentation, and maintaining professional contact in a systems administration/cybersecurity employee role against an assumed, actively exploited breach}
-      \resumeItemListEnd
+      
+      \setlength{\leftskip}{14pt}
+      
+      \resumeItem{Led the Western Washington University team, securing systems and services, writing documentation, and maintaining professional contact in a systems administration/cybersecurity employee role against an assumed, actively exploited breach}
+      
+      \setlength{\leftskip}{0pt}
 
     \resumeSubheading
       {IT Support Specialist (Short-Term Contract)}{Sept. 2021 -- Oct. 2021}
@@ -131,9 +133,12 @@
      \resumeSubheading
       {Collegiate Cyber Defense Competition (CCDC)}{Mar. 2021}
       {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Hardened systems and services, wrote documentation, filed incident reports, provided client support, and more in the role of a systems administration/cybersecurity employee against a skilled team of attackers}
-      \resumeItemListEnd
+      
+      \setlength{\leftskip}{14pt}
+      
+      \resumeItem{Hardened systems and services, wrote documentation, filed incident reports, provided client support, and more in the role of a systems administration/cybersecurity employee against a skilled team of attackers}
+        
+      \setlength{\leftskip}{0pt}
 
     \resumeSubheading
       {Computer Information Systems Tutor}{Oct. 2020 -- Present}
@@ -152,11 +157,15 @@
     \resumeSubheading
       {Western Washington University}{Bellingham, WA}
       {Bachelor of Science in Cybersecurity (GPA: 4.0)}{Jan. 2021 -- June 2023 (Expected)}
-      \resumeItemListStart
-        \resumeItem{Co-President of the Western Washington University Cybersecurity Club}
-      \resumeItemListEnd
+      
+      \setlength{\leftskip}{14pt}
+      
+      \resumeItem{Co-President of the Western Washington University Cybersecurity Club}\vspace{-14pt}
+        
+      \setlength{\leftskip}{0pt}
+      
     \resumeSubheading
-      {Western Washington University}{Bellingham, WA}
+      {}{}
       {Bachelor of Arts in Political Science (GPA: 4.0)}{Sept. 2021 -- Dec. 2023 (Expected)}
     \resumeSubheading
       {Whatcom Community College}{Bellingham, WA}
@@ -172,16 +181,23 @@
     \resumeSubHeadingListStart
       \resumeProjectHeading
           {\textbf{Personal Website \& Tech Blog}}{\href{https://swlacy.com}{swlacy.com}}
+          \resumeItemListStart
+            \resumeItem{Personal publishing ground developed with Hugo and hosted on FireBase}
+            \resumeItem{Features a variety of technical articles, including HackTheBox write-ups, malware analysis, and competition experiences}
+            \resumeItem{Source code on GitHub at \href{https://github.com/lacysw/hugoblog}{lacysw/hugoblog}}
+          \resumeItemListEnd
       \resumeProjectHeading
           {\textbf{WWU Cybersecurity Club}}{\href{https://wwucyber.com}{wwucyber.com}}
           \resumeItemListStart
-            \resumeItem{Collaboratively designed and currently maintain a Discord and SharePoint-powered community for use by 80+ members to participate in competitions, CTFs, and other events.}
-            \resumeItem{Write documentation to enable success in cybersecurity competitions}
+            \resumeItem{Collaboratively designed and currently maintain a Discord-powered community populated by nearly 100 students to facilitate participation in competitions, CTFs, security discussions, and other events}
+            \resumeItem{Contributed to the complete redesign of the club website, wwucyber.com}
+            \resumeItem{Student event leader and community coordinator}
           \resumeItemListEnd
       \resumeProjectHeading
           {\textbf{Home Lab}}{}
           \resumeItemListStart
-            \resumeItem{RAID 1 Proxmox VM cluster hosting: AdGuard Home DNS, Plex Media Server appliances; remote development environment for VSCode SSH; Parrot, Windows images for CTFs; various game servers}
+            \resumeItem{RAID 1 Proxmox VM cluster $|$ AdGuard Home DNS, Plex Media Server appliances $|$ remote development environment with external VPN access $|$ Parrot, Windows images for CTFs $|$ various game servers $|$ I would love to discuss this topic!}
+            \resumeItem{Fully documented; diagram hosted at \href{https://swlacy.com/netdiag.png}{swlacy.com/netdiag.png}}
             \resumeItem{Ubiquiti APs, switches, edge router powering network}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
