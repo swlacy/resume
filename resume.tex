@@ -1,202 +1,132 @@
-% Project:  TeX Resume
-% Editor:   Sid Lacy
-% Attrib:   https://github.com/jakegut/resume/
+% Project:  LaTeX Resume
+% Author:   Sid Lacy
 
-\documentclass[10pt]{article}
+% Description: LaTeX resume template with an emphasis on relative simplicity
+% Based largely off of github.com/jakegut/resume
 
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\input{glyphtounicode}
-\usepackage{fontawesome}
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin = 0.25in]{geometry} % Margin width, minimum safe for printers AFAIK
+\usepackage{charter} % Global text font
+\usepackage{fontawesome} % Icons
+\usepackage[hidelinks]{hyperref} % Allows for clean hyperlink content
+\usepackage{titlesec} % Formatting for section headers
+\usepackage{eqparbox} % Helps to align the Font Awesome icons
 
-\usepackage{mathptmx}
-\usepackage{charter}
-
-
-\pagestyle{fancy}
-\fancyhf{}
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\setlength{\footskip}{4.08003pt}
-
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-0.5in}
-\addtolength{\textheight}{1.0in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
+% Section header formatting
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+    \vspace{-5pt}\large\scshape % Push section header up 5pt; display with size 'large'; format it in all caps
+}{}{}{}[\titlerule\vspace{-5pt}] % Display line under section header for width of document; remove 5pt space below
 
-\pdfgentounicode=1
+% Aligns the Font Awesome icons; thanks to stackoverflow.com/questions/55502809
+\newcommand{\alignicon}[2][nmbr]{\eqmakebox[#1]{\strut #2}}
 
-% Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+% Starts top-level item formatting
+% Accepts: {Title}{Institution}{Location}{Start Date}{End Date}
+\newcommand{\topLevelItem}[5]{
+    \textbf{#1}\hfill #4 — #5\newline
+    \emph{#2\hfill #3}\newline
+    \vspace{-18pt}\begin{itemize}
 }
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+% Starts project-specific top-level item formatting
+% Accepts: {Title}{Institution}{Location}{Start Date}{End Date}
+\newcommand{\topLevelProjectItem}[2]{
+    \textbf{#1}\hfill \emph{#2}\newline
+    \vspace{-18pt}\begin{itemize}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+% Ends top-level item formatting
+\newcommand{\topLevelItemEnd}{\end{itemize}\vspace{5pt}}
+
+% Low-level item formatting
+% Accepts: {Description}
+\newcommand{\lowLevelItem}[1]{
+    \item\small{#1}\vspace{-8pt}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+% Miscellaneous formatting
+\renewcommand{\labelitemi}{$\rightarrow$} % Replaces list bullets with arrows
 
 \begin{document}
-
-% Header
-\begin{center}
-    \textbf{\Huge \scshape Sid Lacy} \\ \vspace{4pt}
-    \href{https://swlacy.com}{\faGlobe\enspace swlacy.com} $|$
-    \href{mailto:contact@swlacy.com}{\faEnvelopeO\enspace contact@swlacy.com} $|$ 
-    \href{https://linkedin.com/in/lacysw}{\faLinkedin\enspace linkedin.com/in/lacysw} $|$
-    \href{https://github.com/lacysw}{\faGithub\enspace github.com/lacysw} $|$
-    \faMapMarker\enspace Pacific Northwest
-\end{center}
-
-% Experience
-\section{Experience}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Computer Information Systems Tutor}{Oct. 2020 -- Present}
-      {Whatcom Community College}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Teach and assist students with WCC Computer Information Systems Department coursework}
-        \resumeItem{Technologies/objectives: Cisco CCNA prep, Bash and Linux admin, VMware and Hyper-V, OOP with Java, security fundamentals}
-      \resumeItemListEnd
+    % Header
+    \begin{center}
+        \noindent\alignicon\faEnvelope\quad\href{mailto:contact@swlacy.com}{contact@swlacy.com}\hfill % Email
+        \href{https://linkedin.com/in/lacysw}{linkedin.com/in/lacysw}\quad\alignicon\faLinkedin\newline % LinkedIn profile
+        \alignicon\faPhone\quad Provided on Request\hfill % Phone number
+        \href{https://github.com/lacysw}{github.com/lacysw}\quad\alignicon\faGithub\newline % GitHub profile
+        \alignicon\faGlobe\quad\href{https://swlacy.com}{swlacy.com}\hfill % Website
+        Pacific Northwest\quad\alignicon\faMapMarker\vspace*{-0.37in} % Location
+        
+        {\fontsize{32}{0}\selectfont\scshape Sid Lacy} % Name
+    \end{center}
     
-    \resumeSubheading
-      {WWU Cybersecurity Club}{Sept. 2021 -- Present}
-      {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Club President and student event leader; Captain of the Western Washington University Cyber Defense Team}
-        \resumeItem{Managed the complete redevelopment of club resources and organizational structure, increasing member count by over 10x}
-      \resumeItemListEnd
-      
-    \resumeSubheading
-      {IT Support Specialist (Short-Term Contract)}{Sept. 2021 -- Oct. 2021}
-      {Anvil Corporation}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Employed PowerShell and Quest KACE to automate network-based workstation re-imaging, improving deployment time metrics}
-        \resumeItem{Performed hardware upgrades on workstations and servers to accelerate business-critical AutoCAD rendering processes}
-        \resumeItem{Carried out on-site network maintenance and inventory cataloging to ensure remote, WFH employee access}
-      \resumeItemListEnd
-
-     \resumeSubheading
-      {Collegiate Cyber Defense Competition (CCDC)}{Mar. 2021}
-      {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Managed the deployment and maintenance of Palo Alto Firewall + IPS to protect the network from external threats}
-        \resumeItem{Hardened Windows and *nix systems and services, wrote technical documentation, and filed incident reports}
-        \resumeItem{Provided organized and effective client support while under relentless attack by skilled industry professionals}
-      \resumeItemListEnd
-  \resumeSubHeadingListEnd
-
-% Education
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Western Washington University}{Bellingham, WA}{Bachelor of Science in Cybersecurity (GPA: 3.93)}{Jan. 2021 -- June 2023 (Expected)}
-      \resumeItemListStart
-        \resumeItem{Relevant coursework: operating systems, databases, functional programming, ARM architecture, technical writing, cyber law}
-        \resumeItem{Academic experience with Java, C, Python, MySQL, Bash, PowerShell}\vspace{-13pt}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {}{}
-      {Bachelor of Arts in Political Science (GPA: 4.0)}{Sept. 2021 -- Dec. 2023 (Expected)}
-    \resumeSubheading
-      {Whatcom Community College}{Bellingham, WA}
-      {Associate of Cybersecurity (GPA: 3.97; Graduated with Honors)}{Sept. 2017 -- Dec. 2020}
-      \resumeItemListStart
-        \resumeItem{Placement on Dean's List for exemplary performance for ten consecutive academic quarters}
-        \resumeItem{Obtained WCC CIS Certificate of Network Administration}
-        \resumeItem{Top-ranked contributor to institution score in 2019, 2020 NCL CTF games}
-        \resumeItem{Completed four academic quarters on Cisco CCNA Routing and Switching}
-        \resumeItem{Additional coursework: Active Directory domain management, CLI-based Linux administration, enterprise network security analysis, OSS firewall management, Industrial Control Systems security, business/client service and professionalism}
-      \resumeItemListEnd
-  \resumeSubHeadingListEnd
-  
-% Activities
-\section{Activities}
-  \resumeSubHeadingListStart
-      
-    \resumeSubheading
-      {Hack the Box University CTF}{Nov. 2021}
-      {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Led the WWU Cyber Defense Team against over 600 competing universities nationally}
-        \resumeItem{Solved a series of advanced, competitive puzzles related to cryptography, forensics, and web service exploitation}
-      \resumeItemListEnd
-      
-    \resumeSubheading
-      {Department of Energy CyberForce Competition}{Nov. 2021}
-      {Western Washington University}{Bellingham, WA}
-      \resumeItemListStart
-        \resumeItem{Led the Western Washington University team; top-ranked in region}
-        \resumeItem{Maintained professional client relations in a security management role against an assumed, actively exploited breach}
-      \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-      
-% Projects
-\section{Projects}
-    \resumeSubHeadingListStart
-      \resumeProjectHeading
-          {\textbf{Personal Website and Tech Blog}}{\href{https://swlacy.com}{swlacy.com}}
-          \resumeItemListStart
-            \resumeItem{Dedicated to educational technical articles related to competition/CTF reports, malware analysis, and security research}
-            \resumeItem{Approximately 700 views per month}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{Home Lab}}{}
-          \resumeItemListStart
-            \resumeItem{Proxmox VM cluster $|$ self-hosted DNS and media server appliances $|$ remote development environment and file storage system with external VPN access $|$ Parrot and Windows images for CTFs $|$ various game servers $|$ powered by Ubiquiti hardware}
-            \resumeItem{Fully documented; diagram hosted at \href{https://swlacy.com/netdiag}{swlacy.com/netdiag}}
-          \resumeItemListEnd
-    \resumeSubHeadingListEnd
-
+    % Section 1: Experience
+    \section*{Experience}
+        % Element
+        \topLevelItem{Computer Information Systems Department Tutor}{Whatcom Community College}{Bellingham, WA}{Oct. 2020}{Present}
+            \lowLevelItem{Teach and assist students with WCC Computer Information Systems Department coursework}
+            \lowLevelItem{Technologies/objectives: Cisco CCNA prep, enterprise security fundamentals, Linux admin with Bash, OS architecture, OOP with Java}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{WWU Cybersecurity Club}{Western Washington University}{Bellingham, WA}{Sept. 2020}{Present}
+            \lowLevelItem{Club President and student event leader; Captain of the Western Washington University Cyber Defense Team}
+            \lowLevelItem{Managed the complete redevelopment of club resources and organizational structure, increasing member count by over 10x in one year}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{IT Support Specialist (Short-Term Contract)}{Anvil Corporation}{Bellingham, WA}{Sept. 2021}{Oct. 2021}
+            \lowLevelItem{Employed PowerShell and Quest KACE to automate network-based workstation re-imaging, improving deployment time metrics}
+            \lowLevelItem{Performed hardware upgrades on workstations and servers to accelerate business-critical AutoCAD rendering processes}
+            \lowLevelItem{Carried out on-site network maintenance and inventory cataloging to ensure consistant remote, WFH employee access}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{Collegiate Cyber Defense Competition (CCDC)}{Western Washington University}{Bellingham, WA}{Jan. 2021}{Mar. 2021}
+            \lowLevelItem{Managed the deployment and maintenance of Palo Alto Firewall + IPS to protect the network from external threats}
+            \lowLevelItem{Hardened Windows and *nix systems and services; filed incident reports; prepared technical security documentation}
+            \lowLevelItem{Provided organized and effective client support while under relentless attack by skilled industry professionals}
+        \topLevelItemEnd
+        
+    % Section 2: Education
+    \section*{Education}
+        % Element
+        \topLevelItem{Cybersecurity, BS}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021}{June 2023 (Expected)}
+            \lowLevelItem{Relevant coursework: operating systems, databases, functional programming, ARM architecture, technical writing, cyber law}
+            \lowLevelItem{Academic experience with Java, C, Python, MySQL, Bash, PowerShell}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{Political Science, BA}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021}{June 2023 (Expected)}
+            \lowLevelItem{Relevant coursework: American legal structures}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{Cybersecurity, AAS}{Whatcom Community College (GPA: 3.97; Graduated with Honors)}{Bellingham, WA}{Sept. 2017}{Dec. 2020}
+            \lowLevelItem{Relevant coursework: Cisco CCNA Routing and Switching, network security architecture, implementing security policy, regulatory standards and compliance, firewall management, industrial control systems security, business/client service and professionalism}
+            \lowLevelItem{Obtained WCC CIS Certificate of Network Administration}
+            \lowLevelItem{Placement on Dean’s List for exemplary performance for ten consecutive academic quarters}
+        \topLevelItemEnd
+        
+    % Section 3: Activities
+    \section*{Activities}
+        % Element
+        \topLevelItem{Department of Energy CyberForce Competition}{Western Washington University}{Bellingham, WA}{Oct. 2021}{Nov. 2021}
+            \lowLevelItem{Led the Western Washington University team; top-ranked in region}
+            \lowLevelItem{Maintained professional client relations in a security management role against an assumed, actively exploited breach}
+        \topLevelItemEnd
+        
+    % Section 4: Projects
+    \section*{Projects}
+        % Element
+        \topLevelProjectItem{Personal Website and Tech Blog}{\href{https://swlacy.com}{swlacy.com}}
+            \lowLevelItem{Dedicated to educational technical articles related to competition/CTF reports, malware analysis, and security research}
+            \lowLevelItem{Over 700 views per month}
+        \topLevelItemEnd
+        % Element
+        \topLevelProjectItem{DiscordShell}{\href{https://github.com/lacysw/DiscordShell}{github.com/lacysw/DiscordShell}}
+            \lowLevelItem{Discord API-powered botnet and C2 designed to infect Windows and Linux hosts while evading AV engines}
+            \lowLevelItem{Built with Python, Bash, PowerShell; constructed for educational/demonstrative purposes}
+        \topLevelItemEnd
+        % Element
+        \topLevelProjectItem{Home Lab}{\href{https://github.com/lacysw/DiscordShell}{\href{https://swlacy.com/netdiag}{swlacy.com/netdiag}}}
+            \lowLevelItem{Proxmox VM cluster: self-hosted DNS with domain-filtering, isolated malware analysis lab, remote development environment, file storage system, media server appliances, CTF images, various game servers}
+            \lowLevelItem{External access via WireGuard}
+        \topLevelItemEnd
 \end{document}
