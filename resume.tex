@@ -15,7 +15,7 @@
 
 % Section header formatting
 \titleformat{\section}{
-    \vspace{-5pt}\large\scshape % Push section header up 5pt; display with size 'large'; format it in all caps
+    \vspace{-10pt}\large\scshape % Push section header up 5pt; display with size 'large'; format it in all caps
 }{}{}{}[\titlerule\vspace{-5pt}] % Display line under section header for width of document; remove 5pt space below
 
 % Aligns the Font Awesome icons; thanks to stackoverflow.com/questions/55502809
@@ -23,8 +23,8 @@
 
 % Starts top-level item formatting
 % Accepts: {Title}{Institution}{Location}{Start Date}{End Date}
-\newcommand{\topLevelItem}[5]{
-    \textbf{#1}\hfill #4 — #5\newline
+\newcommand{\topLevelItem}[4]{
+    \textbf{#1}\hfill #4\newline
     \emph{#2\hfill #3}\newline
     \vspace{-18pt}\begin{itemize}
 }
@@ -51,36 +51,35 @@
 \begin{document}
     % Header
     \begin{center}
+        % Info + icons beside name
         \noindent\alignicon\faEnvelope\quad\href{mailto:contact@swlacy.com}{contact@swlacy.com}\hfill % Email
         \href{https://linkedin.com/in/lacysw}{linkedin.com/in/lacysw}\quad\alignicon\faLinkedin\newline % LinkedIn profile
-        \alignicon\faPhone\quad Provided on Request\hfill % Phone number
-        \href{https://github.com/lacysw}{github.com/lacysw}\quad\alignicon\faGithub\newline % GitHub profile
         \alignicon\faGlobe\quad\href{https://swlacy.com}{swlacy.com}\hfill % Website
-        Pacific Northwest\quad\alignicon\faMapMarker\vspace*{-0.37in} % Location
+        \href{https://github.com/lacysw}{github.com/lacysw}\quad\alignicon\faGithub\vspace*{-0.33in} % GitHub profile
         
-        {\fontsize{32}{0}\selectfont\scshape Sid Lacy} % Name
+         % Name
+        {\fontsize{28}{0}\selectfont\scshape Sid Lacy}\vspace{5pt}
     \end{center}
     
     % Section 1: Experience
     \section*{Experience}
         % Element
-        \topLevelItem{Computer Information Systems Department Tutor}{Whatcom Community College}{Bellingham, WA}{Oct. 2020}{Present}
+        \topLevelItem{Security Engineer Intern (Incoming)}{Amazon Inc.}{Washington, D.C. Metro Area (Remote)}{June 2022 - Sept. 2022}
+            \lowLevelItem{Incoming member of the Amazon Information Security Department in Washington, D.C.}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{Computer Information Systems Department Tutor}{Whatcom Community College}{Bellingham, WA}{Oct. 2020 - Apr. 2022}
             \lowLevelItem{Teach and assist students with WCC Computer Information Systems Department coursework}
             \lowLevelItem{Technologies/objectives: Cisco CCNA prep, enterprise security fundamentals, Linux admin with Bash, OS architecture, OOP with Java}
         \topLevelItemEnd
         % Element
-        \topLevelItem{WWU Cybersecurity Club}{Western Washington University}{Bellingham, WA}{Sept. 2020}{Present}
-            \lowLevelItem{Club President and student event leader; Captain of the Western Washington University Cyber Defense Team}
-            \lowLevelItem{Managed the complete redevelopment of club resources and organizational structure, increasing member count by over 10x in one year}
-        \topLevelItemEnd
-        % Element
-        \topLevelItem{IT Support Specialist (Short-Term Contract)}{Anvil Corporation}{Bellingham, WA}{Sept. 2021}{Oct. 2021}
+        \topLevelItem{IT Support Specialist (Short-Term Contract)}{Anvil Corporation}{Bellingham, WA}{Sept. 2021 — Oct. 2021}
             \lowLevelItem{Employed PowerShell and Quest KACE to automate network-based workstation re-imaging, improving deployment time metrics}
             \lowLevelItem{Performed hardware upgrades on workstations and servers to accelerate business-critical AutoCAD rendering processes}
             \lowLevelItem{Carried out on-site network maintenance and inventory cataloging to ensure consistant remote, WFH employee access}
         \topLevelItemEnd
         % Element
-        \topLevelItem{Collegiate Cyber Defense Competition (CCDC)}{Western Washington University}{Bellingham, WA}{Jan. 2021}{Mar. 2021}
+        \topLevelItem{Collegiate Cyber Defense Competition (Team Captain)}{Western Washington University}{Bellingham, WA}{Jan. 2021 — Mar. 2021; Jan. 2022 — Apr. 2022}
             \lowLevelItem{Managed the deployment and maintenance of Palo Alto Firewall + IPS to protect the network from external threats}
             \lowLevelItem{Hardened Windows and *nix systems and services; filed incident reports; prepared technical security documentation}
             \lowLevelItem{Provided organized and effective client support while under relentless attack by skilled industry professionals}
@@ -89,16 +88,16 @@
     % Section 2: Education
     \section*{Education}
         % Element
-        \topLevelItem{Cybersecurity, BS}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021}{June 2023 (Expected)}
-            \lowLevelItem{Relevant coursework: operating systems, databases, functional programming, ARM architecture, technical writing, cyber law}
+        \topLevelItem{Cybersecurity, BS}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021 — June 2023 (Expected)}
+            \lowLevelItem{Relevant coursework: operating systems, databases, functional programming, computer architecture, technical writing, cyber law}
             \lowLevelItem{Academic experience with Java, C, Python, MySQL, Bash, PowerShell}
         \topLevelItemEnd
         % Element
-        \topLevelItem{Political Science, BA}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021}{June 2023 (Expected)}
+        \topLevelItem{Political Science, BA}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021 — June 2023 (Expected)}
             \lowLevelItem{Relevant coursework: American legal structures}
         \topLevelItemEnd
         % Element
-        \topLevelItem{Cybersecurity, AAS}{Whatcom Community College (GPA: 3.97; Graduated with Honors)}{Bellingham, WA}{Sept. 2017}{Dec. 2020}
+        \topLevelItem{Cybersecurity, AAS}{Whatcom Community College (GPA: 3.97; Graduated with Honors)}{Bellingham, WA}{Sept. 2017 — Dec. 2020}
             \lowLevelItem{Relevant coursework: Cisco CCNA Routing and Switching, network security architecture, implementing security policy, regulatory standards and compliance, firewall management, industrial control systems security, business/client service and professionalism}
             \lowLevelItem{Obtained WCC CIS Certificate of Network Administration}
             \lowLevelItem{Placement on Dean’s List for exemplary performance for ten consecutive academic quarters}
@@ -107,9 +106,14 @@
     % Section 3: Activities
     \section*{Activities}
         % Element
-        \topLevelItem{Department of Energy CyberForce Competition}{Western Washington University}{Bellingham, WA}{Oct. 2021}{Nov. 2021}
-            \lowLevelItem{Led the Western Washington University team; top-ranked in region}
+        \topLevelItem{WWU Cybersecurity Club}{Western Washington University}{Bellingham, WA}{Sept. 2020 — Present}
+            \lowLevelItem{Club President and student event leader; Captain of the Western Washington University Cyber Defense Team}
+            \lowLevelItem{Managed the complete redevelopment of club resources and organizational structure, increasing member count by over 10x in one year}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{Department of Energy CyberForce Competition (Team Captain)}{Western Washington University}{Bellingham, WA}{Oct. 2021 — Nov. 2021}
             \lowLevelItem{Maintained professional client relations in a security management role against an assumed, actively exploited breach}
+            \lowLevelItem{Prepared technical documentation, drafted reports to facilitate event organization}
         \topLevelItemEnd
         
     % Section 4: Projects
@@ -117,10 +121,11 @@
         % Element
         \topLevelProjectItem{Personal Website and Tech Blog}{\href{https://swlacy.com}{swlacy.com}}
             \lowLevelItem{Dedicated to educational technical articles related to competition/CTF reports, malware analysis, and security research}
+            \lowLevelItem{Intermediate web development skills with HTML, JavaScript, CSS; Frameworks: React, Hugo}
             \lowLevelItem{Over 700 views per month}
         \topLevelItemEnd
         % Element
-        \topLevelProjectItem{DiscordShell}{\href{https://github.com/lacysw/DiscordShell}{github.com/lacysw/DiscordShell}}
+        \topLevelProjectItem{Discord Shell}{\href{https://github.com/lacysw/DiscordShell}{github.com/lacysw/DiscordShell}}
             \lowLevelItem{Discord API-powered botnet and C2 designed to infect Windows and Linux hosts while evading AV engines}
             \lowLevelItem{Built with Python, Bash, PowerShell; constructed for educational/demonstrative purposes}
         \topLevelItemEnd
