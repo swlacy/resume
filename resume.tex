@@ -6,7 +6,7 @@
 
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage[margin = 0.25in]{geometry} % Margin width, minimum safe for printers AFAIK
+\usepackage[margin = 0.5in]{geometry} % Margin width
 \usepackage{charter} % Global text font
 \usepackage{fontawesome} % Icons
 \usepackage[hidelinks]{hyperref} % Allows for clean hyperlink content
@@ -48,6 +48,9 @@
 % Miscellaneous formatting
 \renewcommand{\labelitemi}{$\rightarrow$} % Replaces list bullets with arrows
 
+% Suppress page numbers
+\thispagestyle{empty} 
+
 \begin{document}
     % Header
     \begin{center}
@@ -65,12 +68,12 @@
     \section*{Experience}
         % Element
         \topLevelItem{Security Engineer Intern (Incoming)}{Amazon Inc.}{Washington, D.C. Metro Area (Remote)}{June 2022 - Sept. 2022}
-            \lowLevelItem{Incoming member of the Amazon Information Security Department in Washington, D.C.}
+            \lowLevelItem{Incoming member of the Amazon Information Security Department}
         \topLevelItemEnd
         % Element
         \topLevelItem{Computer Information Systems Department Tutor}{Whatcom Community College}{Bellingham, WA}{Oct. 2020 - Apr. 2022}
-            \lowLevelItem{Teach and assist students with WCC Computer Information Systems Department coursework}
-            \lowLevelItem{Technologies/objectives: Cisco CCNA prep, enterprise security fundamentals, Linux admin with Bash, OS architecture, OOP with Java}
+            \lowLevelItem{Taught and assisted students with WCC Computer Information Systems Department coursework}
+            \lowLevelItem{Technologies/objectives: Cisco CCNA prep, enterprise security fundamentals, Linux admin with Bash, OS architecture, Java}
         \topLevelItemEnd
         % Element
         \topLevelItem{IT Support Specialist (Short-Term Contract)}{Anvil Corporation}{Bellingham, WA}{Sept. 2021 — Oct. 2021}
@@ -78,18 +81,12 @@
             \lowLevelItem{Performed hardware upgrades on workstations and servers to accelerate business-critical AutoCAD rendering processes}
             \lowLevelItem{Carried out on-site network maintenance and inventory cataloging to ensure consistant remote, WFH employee access}
         \topLevelItemEnd
-        % Element
-        \topLevelItem{Collegiate Cyber Defense Competition (Team Captain)}{Western Washington University}{Bellingham, WA}{Jan. 2021 — Mar. 2021; Jan. 2022 — Apr. 2022}
-            \lowLevelItem{Managed the deployment and maintenance of Palo Alto Firewall + IPS to protect the network from external threats}
-            \lowLevelItem{Hardened Windows and *nix systems and services; filed incident reports; prepared technical security documentation}
-            \lowLevelItem{Provided organized and effective client support while under relentless attack by skilled industry professionals}
-        \topLevelItemEnd
         
     % Section 2: Education
     \section*{Education}
         % Element
         \topLevelItem{Cybersecurity, BS}{Western Washington University (GPA: 3.93)}{Bellingham, WA}{Jan. 2021 — June 2023 (Expected)}
-            \lowLevelItem{Relevant coursework: operating systems, databases, functional programming, computer architecture, technical writing, cyber law}
+            \lowLevelItem{Relevant coursework: operating systems, security, database architecture, technical writing, functional programming, cyber law}
             \lowLevelItem{Academic experience with Java, C, Python, MySQL, Bash, PowerShell}
         \topLevelItemEnd
         % Element
@@ -106,9 +103,16 @@
     % Section 3: Activities
     \section*{Activities}
         % Element
-        \topLevelItem{WWU Cybersecurity Club}{Western Washington University}{Bellingham, WA}{Sept. 2020 — Present}
-            \lowLevelItem{Club President and student event leader; Captain of the Western Washington University Cyber Defense Team}
-            \lowLevelItem{Managed the complete redevelopment of club resources and organizational structure, increasing member count by over 10x in one year}
+        \topLevelItem{WWU Cybersecurity Club (President)}{Western Washington University}{Bellingham, WA}{Sept. 2020 — Present}
+            \lowLevelItem{Student event leader; Captain of the Western Washington University Cyber Defense Team}
+            \lowLevelItem{Managed the complete redevelopment of club resources and organizational structure, increasing membership by 10x in one year}
+        \topLevelItemEnd
+        % Element
+        \topLevelItem{Collegiate Cyber Defense Competition (Team Captain)}{Western Washington University}{Bellingham, WA}{Jan. 2021 — Mar. 2021; Jan. 2022 — Apr. 2022}
+            \lowLevelItem{2022 team manager, public representative, and official correspondent; effective security strategist}
+            \lowLevelItem{Managed the deployment and maintenance of Palo Alto Firewall + IPS to protect the network from external threats}
+            \lowLevelItem{Hardened Windows and *nix systems and services, filed incident reports, prepared technical security documentation}
+            \lowLevelItem{Provided organized and effective client support while under relentless attack by skilled industry professionals}
         \topLevelItemEnd
         % Element
         \topLevelItem{Department of Energy CyberForce Competition (Team Captain)}{Western Washington University}{Bellingham, WA}{Oct. 2021 — Nov. 2021}
@@ -122,7 +126,6 @@
         \topLevelProjectItem{Personal Website and Tech Blog}{\href{https://swlacy.com}{swlacy.com}}
             \lowLevelItem{Dedicated to educational technical articles related to competition/CTF reports, malware analysis, and security research}
             \lowLevelItem{Intermediate web development skills with HTML, JavaScript, CSS; Frameworks: React, Hugo}
-            \lowLevelItem{Over 700 views per month}
         \topLevelItemEnd
         % Element
         \topLevelProjectItem{Discord Shell}{\href{https://github.com/lacysw/DiscordShell}{github.com/lacysw/DiscordShell}}
@@ -131,7 +134,6 @@
         \topLevelItemEnd
         % Element
         \topLevelProjectItem{Home Lab}{\href{https://github.com/lacysw/DiscordShell}{\href{https://swlacy.com/netdiag}{swlacy.com/netdiag}}}
-            \lowLevelItem{Proxmox VM cluster: self-hosted DNS with domain-filtering, isolated malware analysis lab, remote development environment, file storage system, media server appliances, CTF images, various game servers}
-            \lowLevelItem{External access via WireGuard}
+            \lowLevelItem{Proxmox VM cluster: self-hosted DNS with domain-filtering, isolated malware analysis lab, remote development environment, file storage system, media server appliances, CTF images, various game servers; external access via WireGuard}
         \topLevelItemEnd
 \end{document}
